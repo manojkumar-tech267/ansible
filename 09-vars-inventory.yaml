@@ -1,0 +1,7 @@
+- name: variables from inventory 
+  hosts: local 
+  connection: local 
+  tasks:
+  - name: "We are taking variables from inventory file"
+    ansible.builtin.debug:
+      msg: "My Name is {{ Name }} I like watching {{ Favourite}}"

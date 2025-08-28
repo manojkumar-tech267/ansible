@@ -1,0 +1,20 @@
+- name: data types in ansible 
+  hosts: local 
+  connection: local
+  vars:
+    Names:
+    - Manoj 
+    - Jeevan
+    - Ashok
+    - Saida
+    Hobbies:
+      Manoj: "Movies, TV Shows"
+      Jeevan: "Games, Cricket"
+      Saida: "Farming, Playing"
+    Age: 10
+    is_working: true
+    Company: Prodapt 
+  tasks:
+  - name: Printing Variable Values
+    ansible.builtin.debug:
+      msg: "{{ Names }} {{ Hobbies }} {{ Age }} {{ is_working }} {{ Company }}"

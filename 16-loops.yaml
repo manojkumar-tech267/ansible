@@ -1,0 +1,21 @@
+- name: loops 
+  hosts: local 
+  connection: local
+  tasks:
+  - name: printing items in Ansible 
+    ansible.builtin.debug:
+        msg: "{{ item }}"
+    loop:
+    - Manoj 
+    - Suresh 
+    - Karthik
+    - Jeevan 
+    - Suma 
+  - name: printing another loop of my Favourite Movies 
+    ansible.builtin.debug:
+      msg: "{{ item }}"
+    loop:
+    - RRR 
+    - Devara
+    - Temper 
+    - Aravinda Sametha 
