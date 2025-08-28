@@ -6,4 +6,4 @@
   tasks:
   - name: printing variables values from files 
     ansible.builtin.debug:
-        msg: "My name is {{name}} I am learning {{course}}"    
+        msg: "My name is {{ Name }} I am learning {{ Course }}"    
