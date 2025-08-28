@@ -12,4 +12,13 @@
     ansible.builtin.debug:
       msg: "{{ names | split(',') }}"
 
+  - name: convert map in to list 
+    vars:
+      details:
+       name: "Manoj Kumar"
+       Profession: "Devops Engineer"
+       skills: "Terraform, Ansible, Kubernetes"
+    ansible.builtin.debug:
+      msg: "{{ details | dict2items}}"
+
   
