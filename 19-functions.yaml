@@ -21,13 +21,12 @@
     ansible.builtin.debug:
       msg: "{{ details | dict2items}}"
   
-  - name: convert list to map 
+  - name : convert list to map 
     vars:
-      details:
-        - {'name': 'Manoj Kumar' }
-        - {'hobbies': 'Reading, watching movies, Learning new Tech' }
-        - {'profession': 'Devops Engineer' }
+      courses:
+      - { 'name': 'Devops', 'Fee': 20000 }
+      - { 'name': 'Java', 'Fee': 25000 }
+      - { 'name': 'GenAi', 'Fee': 30000 }
     ansible.builtin.debug:
-      msg: "{{ details | items2dict }}"
-
+      msg: "{{ courses | items2dict }}"
   
