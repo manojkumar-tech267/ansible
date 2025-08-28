@@ -1,15 +1,16 @@
-- name: install packages through loops 
+- name: install packages through loop 
   hosts: local 
   connection: local 
   become: yes 
   tasks:
-  - name: install packages through loops 
+  - name: install packages through loop 
     ansible.builtin.package:
-      name: "{{ item }}"
+      name: "{{item}}"
       state: present 
     loop:
-    - nginx 
-    - mysql 
-    - python3 
     - ansible 
+    - python3 
     - git 
+    - nginx
+    - java 
+  
