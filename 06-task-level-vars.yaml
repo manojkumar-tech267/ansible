@@ -2,10 +2,10 @@
   hosts: local 
   connection: local
   vars:
-    name: Manoj 
+    Name: Manoj 
   tasks:
   - name: printing task level variables 
     vars:
-      name: "Manoj Kumar"
+      Name: "Manoj Kumar"
     ansible.builtin.debug:
-      msg: "My name is {{ name }}"
+      msg: "My name is {{ Name }}"
