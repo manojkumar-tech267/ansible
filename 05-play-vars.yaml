@@ -2,10 +2,10 @@
   hosts: local 
   connection: local 
   vars:
-    Course: "Devops With AWS"
-    Duration: "12 Weeks"
-    Trainer: "Siva Kumar"
+    Name: "Manoj Kumar"
+    Profession: "Devops Engineer" 
+    Salary: 50000
   tasks:
-  - name: printing variables 
+  - name: printing play level variables 
     ansible.builtin.debug:
-      msg: "Course Details are {{ Course }} {{ Duration }} {{ Trainer }}"
+      msg: "My name is {{ Name}} My Profession is {{Profession}} My salary is {{ Salary }}"
