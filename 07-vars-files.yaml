@@ -3,7 +3,6 @@
   connection: local
   vars_files:
   - course.yaml 
-  connection: local
   tasks:
   - name: printing variables values from files 
     ansible.builtin.debug:
