@@ -1,6 +1,7 @@
 - name: printing hello world 
   hosts: testing 
-  tasks:
-  - name: printing hello world statement 
+  tasks: 
+  - name: printing hello world through ansible 
     ansible.builtin.debug:
-      msg: "Hello world"
+      msg: "Hello World i am printing through yaml"
+      
