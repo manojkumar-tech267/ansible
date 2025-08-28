@@ -8,7 +8,7 @@
     ansible.builtin.debug:
       msg: "{{ person | default('manoj') }}"
   
-  - name: print names 
+  - name: printing names 
     ansible.builtin.debug:
       msg: "{{ names | split(',') }}"
 
