@@ -24,9 +24,9 @@
   - name: convert list to map 
     vars:
       details:
-        - {'name': "Manoj Kumar"}
-        - {'hobbies': "Reading, watching movies, Learning new Tech"}
-        - {'profession': "Devops Engineer"}
+        - {'name': 'Manoj Kumar' }
+        - {'hobbies': 'Reading, watching movies, Learning new Tech' }
+        - {'profession': 'Devops Engineer' }
     ansible.builtin.debug:
       msg: "{{ details | items2dict }}"
 
