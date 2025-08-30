@@ -1,44 +1,48 @@
 - name: functions in ansible 
-  hosts: local 
+  hosts: local
   connection: local 
-  vars:
-    names: "Manoj,Jeevan,Buchi,Saida"
+  vars: 
+    persons: "Manoj,Jeevan,Raghu,Royal"
   tasks:
-  - name : printing undefined variable 
+  - name: check undefined variable 
     ansible.builtin.debug:
-      msg: "{{ person | default('manoj') }}"
-  
-  - name: printing names 
-    ansible.builtin.debug:
-      msg: "{{ names | split(',') }}"
-
-  - name: convert map in to list 
-    vars:
-      details:
-       name: "Manoj Kumar"
-       Profession: "Devops Engineer"
-       skills: "Terraform, Ansible, Kubernetes"
-    ansible.builtin.debug:
-      msg: "{{ details | dict2items}}"
-  
-  - name : convert list to map 
-    vars:
-      courses:
-      - { 'key': 'Devops', 'value': 20000 }
-      - { 'key': 'Java', 'value': 25000 }
-      - { 'key': 'GenAi', 'value': 30000 }
-    ansible.builtin.debug:
-      msg: "{{ courses | items2dict }}"
-  
-  - name: convert to uppercase
+      msg: "The Person is {{ person | default('Manoj') }}"
+  - name: split string in to list 
+    ansible.builtin.debug: 
+      msg: "My Friends names are {{ persons | split(',') }}"
+  - name: map to list  
     vars: 
-        name: "manoj kumar"
+      course:
+        course: Ansible 
+        Trainer: "Siva Kumar Reddy"
+        Fee: 5000
     ansible.builtin.debug:
-        msg: "{{ name | upper }}"
+      msg: "The Course details are {{ course | dict2items}}"
   
-  - name: convert to lowercase 
-    vars:
-        name: "MANOJ KUMAR"
+  - map: list to map 
+    vars: 
+      course: 
+      - {'key':"Devops",'value':'50000'}
+      - {'key':'Java','value':'40000'}
+      - {'key':'Python','value':'30000'}
     ansible.builtin.debug:
-      msg: "{{ name | lower }}"
+      msg: "THe course details {{ course | items2dict }}"
+  
+  - name: The upper value 
+    vars:
+      name: "manoj kumar"
+    ansible.builtin.debug:
+      msg: "The upper value is {{ name | upper}}"
+  
+  - name: The lower value is 
+    vars:
+      name: "MANOJ KUMAR"
+    ansible.builtin.debug:
+      msg: "The lower value is {{ name | lower}}"
+  - name: checking ip address is valid or not 
+    vars:
+      ip: "192.168.1.1"
+    ansible.builtin.debug:
+      msg: "THe ip address is valid or not ? {{ ip | ansible.utils.ipaddr }}"
+
   
