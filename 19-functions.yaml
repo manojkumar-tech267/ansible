@@ -19,7 +19,7 @@
     ansible.builtin.debug:
       msg: "The Course details are {{ course | dict2items}}"
   
-  - map: list to map 
+  - name: list to map 
     vars: 
       course: 
       - {'key': 'Devops','value': '50000'}
