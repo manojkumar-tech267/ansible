@@ -22,9 +22,9 @@
   - map: list to map 
     vars: 
       course: 
-      - {'key':"Devops",'value':'50000'}
-      - {'key':'Java','value':'40000'}
-      - {'key':'Python','value':'30000'}
+      - {'key': 'Devops','value': '50000'}
+      - {'key': 'Java','value': '40000'}
+      - {'key': 'Python','value': '30000'}
     ansible.builtin.debug:
       msg: "THe course details {{ course | items2dict }}"
   
