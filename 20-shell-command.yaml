@@ -13,4 +13,11 @@
     register: command_result 
   - name: printing command result 
     ansible.builtin.debug:
-      msg: "The command result is {{ command_result }}"  
+      msg: "The command result is {{ command_result }}" 
+  - name: running simple command 
+    ansible.builtin.command: "ls -ltr"
+    register: command_output 
+  - name: printing command output 
+    ansible.builtin.debug:
+      msg: "The command output is {{ command_output }}" 
+   
