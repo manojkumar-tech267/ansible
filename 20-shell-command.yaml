@@ -9,7 +9,7 @@
     ansible.builtin.debug:
       msg: "The command result is {{ command_result }}"
   - name: running command 
-    ansible.builtin.command: "ls -ltr >> /tmp/output.txt"
+    ansible.builtin.shell: "ls -ltr >> /tmp/output.txt"
     register: command_result 
   - name: printing command result 
     ansible.builtin.debug:
