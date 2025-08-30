@@ -1,48 +1,43 @@
 - name: functions in ansible 
-  hosts: local
+  hosts: local 
   connection: local 
-  vars: 
-    persons: "Manoj,Jeevan,Raghu,Royal"
+  vars:
+    persons: "manoj,jeevan,saida,buchi"
   tasks:
-  - name: check undefined variable 
+  - name: printing undefined variable 
     ansible.builtin.debug:
-      msg: "The Person is {{ person | default('Manoj') }}"
-  - name: split string in to list 
-    ansible.builtin.debug: 
-      msg: "My Friends names are {{ persons | split(',') }}"
-  - name: map to list  
-    vars: 
+      msg: "My Name is {{ person | default('Manoj') }}"
+  - name: printing list of names 
+    ansible.builtin.debug:
+      msg: "The list of names are {{ persons | split(',') }}"
+  - name: converting map to list 
+    vars:
       course:
-        course: Ansible 
-        Trainer: "Siva Kumar Reddy"
-        Fee: 5000
+        'name': 'Devops'
+        'Fee': '24000'
+        'Trainer': 'Siva Kumar Reddy'
     ansible.builtin.debug:
-      msg: "The Course details are {{ course | dict2items}}"
-  
-  - name: list to map 
-    vars: 
-      course: 
-      - {'key': 'Devops','value': '50000'}
-      - {'key': 'Java','value': '40000'}
-      - {'key': 'Python','value': '30000'}
+      msg: "THe list of course details are {{ course | dict2items }}"
+  - name: converting list to map 
+    vars:
+      course:
+        - {'key': 'Devops', 'value': '50000'}
+        - {'key': 'Java', 'value': '25000' }
+        - {'key': 'Python', 'value': '30000'}
     ansible.builtin.debug:
-      msg: "THe course details {{ course | items2dict }}"
-  
-  - name: The upper value 
+      msg: "The list of course details are {{ course | items2dict }}"
+  - name: converting to upper 
     vars:
       name: "manoj kumar"
     ansible.builtin.debug:
-      msg: "The upper value is {{ name | upper}}"
-  
-  - name: The lower value is 
+      msg: "My name is {{ name | upper }}"
+  - name: converting to lower 
     vars:
       name: "MANOJ KUMAR"
     ansible.builtin.debug:
-      msg: "The lower value is {{ name | lower}}"
+      msg: "My name is {{ name | lower }}"
   - name: checking ip address is valid or not 
     vars:
-      ip: "300.567.980.789"
+      ip: "320.523.125.125"
     ansible.builtin.debug:
-      msg: "THe ip address is valid or not ? {{ ip | ansible.utils.ipaddr }}"
-
-  
+      msg: "The ip address is {{ ip | ansible.utils.ipaddr}}"
