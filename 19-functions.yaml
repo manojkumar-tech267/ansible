@@ -38,6 +38,6 @@
       msg: "My name is {{ name | lower }}"
   - name: checking ip address is valid or not 
     vars:
-      ip: "320.523.125.125"
+      ip: "125.0.0.1"
     ansible.builtin.debug:
       msg: "The ip address is {{ ip | ansible.utils.ipaddr}}"
