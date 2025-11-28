@@ -1,0 +1,8 @@
+- name: printing variables from inventory 
+  hosts: local 
+  connection: local 
+  become: yes 
+  tasks:
+  - name: taking variable values from inventory 
+    ansible.builtin.debug:
+      msg: "I am {{ name }}. I am working as a {{ profession }}. I am from {{ location }}"

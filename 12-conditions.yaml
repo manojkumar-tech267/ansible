@@ -1,0 +1,16 @@
+- name: installing nginx 
+  hosts: frontend 
+  become: yes 
+  tasks:
+  - name: this task will execute when os family is readhat 
+    ansible.builtin.dnf:
+      name: nginx 
+      state: present 
+    when: ansible_os_family == "ReadHat"
+  - name: this task will execute when os family is debian 
+    ansible.builtin.apt:
+      name: nginx 
+      state: present 
+    when: ansible_os_family == "Debian"
+
+# try another script on your own print number is positive negative or equal

@@ -1,0 +1,31 @@
+- name: installing nginx
+  hosts: frontend 
+  become: yes 
+  tasks:
+  - name: installing nginx 
+    ansible.builtin.package:
+      name: nginx 
+      state: present
+  - name: start and enable nginx
+    ansible.builtin.service:
+      name: nginx 
+      state: started 
+      enabled: yes
+
+- name: installing mysql
+  hosts: frontend
+  become: yes 
+  tasks:
+  - name: installing mysql 
+    ansible.builtin.package:
+      name: mysql
+      state: present
+
+- name: printing hello world
+  hosts: local 
+  connection: local 
+  become: yes
+  tasks:
+  - name: printing hello world message 
+    ansible.builtin.debug:
+      msg: "Hello World"

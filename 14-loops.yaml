@@ -1,0 +1,15 @@
+- name: installing multiple packages 
+  hosts: local 
+  connection: local 
+  become: yes 
+  tasks:
+  - name: installing packages 
+    ansible.builtin.package:
+      name: "{{ item }}"
+      state: present 
+    loop:
+    - ansible 
+    - nginx 
+    - python 
+    - mysql
+    - git

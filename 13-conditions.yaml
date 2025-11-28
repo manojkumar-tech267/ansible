@@ -1,0 +1,15 @@
+- name: creating roboshop user
+  hosts: frontend 
+  become: yes 
+  tasks:
+  - name: checking roboshop user 
+    ansible.builtin.command: id roboshop 
+    register: user 
+    ignore_errors: true
+  - name: print variable value 
+    ansible.builtin.debug:
+      msg: "user variable value is {{user}}"
+  - name: creating roboshop user
+    ansible.builtin.user:
+      name: roboshop
+    when: user.rc != 0

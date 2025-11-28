@@ -1,0 +1,15 @@
+- name: task level variables
+  hosts: local 
+  connection: local 
+  vars:
+    name: "Manoj Kumar"
+    profession: "Devops Engineer"
+    location: "Repalle"
+  become: yes
+  tasks:
+  - name: printing task level variables
+    vars:
+      name: "Manoj"
+      profession: "Mlops Engineer"
+    ansible.builtin.debug:
+      msg: "Hi, I am {{ name }}. I am working as a {{ profession }}. I am from {{ location }}"

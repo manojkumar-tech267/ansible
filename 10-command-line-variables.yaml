@@ -1,0 +1,8 @@
+- name: taking variable values from command line 
+  hosts: local 
+  connection: local 
+  become: yes 
+  tasks:
+  - name: printing variable values from comamnd line 
+    ansible.builtin.debug:
+      msg: "Hi, My name is {{ name }}, I am working as a {{ profession }}"

@@ -1,0 +1,36 @@
+- name: checking data types in ansible 
+  hosts: local 
+  connection: local 
+  become: yes 
+  vars:
+    name: "Manoj Kumar"
+    skills:
+    - Java 
+    - Python 
+    - NodeJS
+    friends:
+    - jeevan
+    - saida
+    - buchi
+    my_info:
+      name: "Manoj Kumar"
+      profession: "DevOps/SRE Engineer"
+      hometown: "Repalle"
+    Experience:
+      Devops: 2
+      Linux: 2
+      Ansible: 2
+      Terraform: 2
+    Trainer: true
+  tasks:
+  - name: printing data types 
+    ansible.builtin.debug:
+      msg: "I Have an Experience {{ Experience }}"
+  
+  - name: printing my information 
+    ansible.builtin.debug:
+      msg: "About me: {{ my_info }}"
+  
+  - name: printing my skills and my friends information
+    ansible.builtin.debug:
+      msg: "{{ skills }}  {{friends }}  {{ Trainer }}"
