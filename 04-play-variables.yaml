@@ -1,0 +1,12 @@
+- name: Play Level Variables in Ansible 
+  hosts: local
+  connection: local 
+  vars:
+    Name: "Manoj Kumar"
+    Profession: "Devops Engineer"
+    Hometown: "Repalle"
+
+  tasks:
+    - name: print user information 
+      ansible.builtin.debug:
+        msg: "My name is {{ Name }}. I am working as a {{ Profession }}. I am from {{ Hometown}}"

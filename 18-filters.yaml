@@ -1,0 +1,61 @@
+- name: Filters in Ansible 
+  hosts: local 
+  connection: local 
+  vars: 
+    topics: Linux, Ansible, Terraform, Docker, Kubernetes
+    tagsMap:
+      Name: "Manoj Kumar"
+      Profession: "Devops Engineer"
+      Organization: "Bendito Soft Tech"
+      Age: 27
+    tagsList: 
+      [
+        {
+            "key": "Name",
+            "value": "Manoj Kumar"
+        },
+        {
+            "key": "Profession",
+            "value": "Devops Engineer"
+        },
+        {
+            "key": "Organization",
+            "value": "Bendito Soft Tech"
+        },
+        {
+            "key": "Age",
+            "value": 27
+        }
+    ]
+
+  become: yes 
+
+
+  tasks:
+    - name: Greeting User 
+      ansible.builtin.debug:
+        msg: "Hello, {{ Greeting | default('Good Morning') }} Manoj"
+    
+    - name: convert string to list 
+      ansible.builtin.debug:
+        msg: "{{ topics | split(',') }}"
+    
+    - name: converting map to list 
+      ansible.builtin.debug:
+        msg: "{{ tagsMap | dict2items }}"
+    
+    - name: convert list to map 
+      ansible.builtin.debug:
+        msg: "{{ tagsList | items2dict }}"
+    
+    - name: Read Students YAML file
+      ansible.builtin.set_fact:
+        students_yaml: "{{ lookup('file', 'students.yaml') | from_yaml }}" 
+    
+    - name: Convert YAML to JSON 
+      ansible.builtin.debug:
+        msg: "{{ students_yaml | to_nice_json }}"
+    
+      
+      
+    

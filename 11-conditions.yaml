@@ -1,0 +1,13 @@
+- name: Conditions in Ansible 
+  hosts: local 
+  connection: local 
+  vars:
+    IsWorking: true
+
+
+  tasks:
+    - name: Checking the person is Working or not
+      ansible.builtin.debug:
+        msg: "Yes, The Person is Working as a DevSecops Engineer"
+      when: IsWorking == true
+

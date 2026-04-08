@@ -1,0 +1,40 @@
+- name: Data Types in Ansible 
+  hosts: local 
+  connection: local 
+  vars:
+    Name: "Manoj Kumar"
+    Age: 27 
+    IS_Working: true
+    Details:
+      HomeTown: "Repalle"
+      Company: "Bendito Soft Tech"
+      Profession: "DevSecops Engineer"
+      Location: "Remote"
+    Skills:
+      - Linux
+      - Shell Scripting
+      - Ansible 
+      - Terraform
+      - Docker 
+      - Kubernetes
+      - Jenkins
+      - GitHub Actions
+      - Python
+      - AWS
+    
+
+  tasks:  
+    # here we give pipe for getting in new line and better readability
+      - name: Printing User Details 
+        ansible.builtin.debug:
+          msg: |    
+            Name: {{ Name }}
+            Age: {{ Age }}
+            IsWorking?: {{ IS_Working }}
+            Details: {{ Details }}
+            Skills: {{ Skills }}
+          
+
+    
+    
+    

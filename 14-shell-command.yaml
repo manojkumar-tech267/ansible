@@ -1,0 +1,27 @@
+- name: Ansible Command vs Shell Module
+  hosts: local 
+  connection: local 
+
+
+  tasks:
+    - name: Command Module Example 
+      # ansible.builtin.command: cat /etc/passwd | grep root
+      ansible.builtin.shell: cat /etc/passwd | grep root
+      register: users_output
+    
+    - name: Display user output 
+      ansible.builtin.debug:
+        msg: "users information is {{ users_output }}"
+    
+    - name: Display Files Information 
+      ansible.builtin.shell: ls -ltr > files.txt
+      register: files_output 
+    
+    - name: Display Files Information 
+      ansible.builtin.debug:
+        msg: "Files information is {{ files_output }}"
+
+    
+    
+
+    

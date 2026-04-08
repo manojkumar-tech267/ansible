@@ -1,0 +1,9 @@
+- name: Argument Level Variables in Ansible 
+  hosts: local 
+  connection: local 
+
+
+  tasks:
+    - name: Printing User Details 
+      ansible.builtin.debug:
+        msg: "My name is {{ Name }}, I am from {{ Hometown }}, My Age is {{ Age }}"

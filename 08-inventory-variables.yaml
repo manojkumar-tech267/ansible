@@ -1,0 +1,9 @@
+- name: Print Variables from Inventory File 
+  hosts: local 
+  connection: local 
+
+
+  tasks:
+    - name: Printing User Information
+      ansible.builtin.debug:
+        msg: "My Name is {{ Name }}, Currently I am working as a {{ Profession }}. I am from {{ Hometown }}"

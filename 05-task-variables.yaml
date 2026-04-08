@@ -1,0 +1,15 @@
+- name: Task Level Variables in Ansible 
+  hosts: local 
+  connection: local 
+  vars:
+    Name: "Manoj"
+  
+
+  tasks:
+    - name: Print User Information
+      vars:
+        Name: "Manoj Kumar"
+        Profession: "Devops Engineer" 
+        Hometown: "Repalle" 
+      ansible.builtin.debug:
+        msg: "My name is {{ Name }}. Currently i am working as a {{Profession }}. I am from {{ Hometown }}"

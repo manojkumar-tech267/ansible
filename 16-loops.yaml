@@ -1,0 +1,17 @@
+- name: Install Multiple Packages Through Loops 
+  hosts: local 
+  connection: local 
+  become: yes 
+
+
+  tasks:
+    - name: Install Multiple Packages 
+      ansible.builtin.package:
+        name: "{{ item }}"
+        state: present 
+      loop:
+        - nginx
+        - mysql
+        - python
+        - zip
+        - unzip
